@@ -27,30 +27,25 @@ public class StdController {
 		return "/home";
 	}
 
-	@RequestMapping(value = "test/std2.do", method = RequestMethod.GET)
-	public ModelAndView eprocess2() {
-		return new ModelAndView("/test/stdinput", "msg", new Student());
-	}
-
-	@RequestMapping(value = "/bookinfo.do", method = RequestMethod.POST)
-	public String eprocess3(@ModelAttribute Student ret, Model model) {
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	public String s(@ModelAttribute Student ret, Model model) {
 		model.addAttribute("msg", ret);
 		stddb.create(ret);
-		return "/result";
+		return "/home";
 	}
 
 	// 조회
-	@RequestMapping(value = "test/std_list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookcheck.do", method = RequestMethod.GET)
 	public String getStudent(Model model, @RequestParam(value = "seq", required = false, defaultValue = "0") int seq) {
 
 		if (seq == 0) {
 			List<Student> std = stddb.select();
-			model.addAttribute("std_cmd", std);
-			return "/test/list";
+			model.addAttribute("std", std);
+			return "/result";
 		} else {
 			Student std = stddb.select(seq);
-			model.addAttribute("msg", std);
-			return "/test/result";
+			model.addAttribute("std", std);
+			return "/result";
 		}
 	}
 	@RequestMapping(value = "test/std_delete.do", method = RequestMethod.GET)
