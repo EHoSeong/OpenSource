@@ -40,4 +40,5 @@ public class AdminDB {
 		String sql = "delete from admin where seq=?";
 		return jdbcTemplate.update(sql,seq);
 	}
+	
 }

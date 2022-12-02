@@ -21,9 +21,10 @@ public class StdController {
 		model.addAttribute("msg", new Student());
 		return "/stdinput";
 	}
+
 	@RequestMapping(value = "/home")
 	public String home() {
-	
+
 		return "/home";
 	}
 
@@ -36,23 +37,17 @@ public class StdController {
 
 	// 조회
 	@RequestMapping(value = "/bookcheck.do", method = RequestMethod.GET)
-	public String getStudent(Model model, @RequestParam(value = "seq", required = false, defaultValue = "0") int seq) {
+	public String getStudent(Model model, @RequestParam(value = "stdnum", required = false, defaultValue = "0") String stdnum) {
 
-		if (seq == 0) {
-			List<Student> std = stddb.select();
-			model.addAttribute("std", std);
-			return "/result";
-		} else {
-			Student std = stddb.select(seq);
-			model.addAttribute("std", std);
-			return "/result";
-		}
+		Student std = stddb.select(stdnum);
+		model.addAttribute("std", std);
+		return "/stdresult";
 	}
+
 	@RequestMapping(value = "test/std_delete.do", method = RequestMethod.GET)
 	public String delete(@RequestParam(value = "seq", required = true) int seq) {
 		stddb.delete(seq);
 		return "redirect:/test/std_list.do";
 	}
 
-	
 }
