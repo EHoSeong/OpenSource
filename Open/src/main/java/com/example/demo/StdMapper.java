@@ -15,6 +15,7 @@ public class StdMapper implements RowMapper<Student> {
 		std.setStdnum(rs.getString("stdnum"));
 		std.setName(rs.getString("name"));
 		std.setPhonenum(rs.getString("phonenum"));
+		std.setDate(rs.getDate("date"));
 		return std;
 	}
 

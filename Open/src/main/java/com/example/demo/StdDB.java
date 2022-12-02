@@ -22,7 +22,7 @@ public class StdDB {
 		jdbcTemplate.update(sql, std.getStdnum(), std.getName(), std.getPhonenum());
 	}
 	public List<Student> select() {
-		String sql = "select * from student";
+		String sql = "select * from info";
 		List<Student> std = jdbcTemplate.query(sql, new StdMapper());
 		System.out.println("select값 :" + std);
 		
@@ -30,7 +30,7 @@ public class StdDB {
 	}
 	
 	public Student select(int seq) {
-		String sql = "select * from student where seq=?";
+		String sql = "select * from info where seq=?";
 		
 		Student std = jdbcTemplate.queryForObject(sql, new StdMapper(), seq);
 		System.out.println("select 값 : " + std);
