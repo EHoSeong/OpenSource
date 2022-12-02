@@ -71,6 +71,14 @@ input[type="checkbox"] {
 h1 {
 	text-align: center;
 }
+.input{
+            float: right;
+            font-size: 30px;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            color:black;
+            text-decoration: none;
+        }
 </style>
 </head>
 <body>
@@ -86,7 +94,7 @@ h1 {
 		</div>
 	</div>
 
-	<h1>전체 리스트 화면</h1>
+<a href = "/adminregister" class = "input">[상품추가]</a>
 	<table border=1>
 		<tr>
 			<th></th>
@@ -97,7 +105,7 @@ h1 {
 			<c:forEach var="ad_n" items="${ad}">
 				<tr>
 					<td><input type="checkbox" value = ${ad_n.seq}></td>
-					<td><a href="/delete.do?seq=${ad_n.seq }">${ad_n.item}</td>
+					<td><a href="/itemlist?seq=${ad_n.seq }">${ad_n.item}</td>
 					<td>${ad_n.itemcount}</td>
 					<td>${ad_n.date}
 				</tr>

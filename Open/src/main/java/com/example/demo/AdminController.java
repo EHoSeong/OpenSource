@@ -46,13 +46,13 @@ public class AdminController {
 		} else {
 			Admin ad = addb.select(seq);
 			model.addAttribute("ad", ad);
-			return "/result";
+			return "/iteminfo";
 		}
 	}
 
 	@RequestMapping(value = "/delete.do", method = RequestMethod.GET)
 	public String delete(@RequestParam(value = "seq", required = true) int seq) {
 		addb.delete(seq);
-		return "/result";
+		return "redirect:/itemlist";
 	}
 }
