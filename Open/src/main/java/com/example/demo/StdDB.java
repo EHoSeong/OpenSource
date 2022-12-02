@@ -37,6 +37,14 @@ public class StdDB {
 		
 		return std;
 	}
+	public Student select(String stdnum) {
+		String sql = "select * from info where stdnum=?";
+		
+		Student std = jdbcTemplate.queryForObject(sql, new StdMapper(), stdnum);
+		System.out.println("select 값 : " + std);
+		
+		return std;
+	}
 
 	public int delete(int seq) {
 		String sql = "delete from student where seq=?";

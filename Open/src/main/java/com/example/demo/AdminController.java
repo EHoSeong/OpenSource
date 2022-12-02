@@ -38,15 +38,21 @@ public class AdminController {
 	@RequestMapping(value = "/itemlist", method = RequestMethod.GET)
 	public String getStudent(Model model, @RequestParam(value = "seq", required = false, defaultValue = "0") int seq) {
 
-		List<Admin> ad = addb.select();
-		model.addAttribute("ad", ad);
-		return "/itemlist";
-
+		
+		if (seq == 0) {
+			List<Admin> ad = addb.select();
+			model.addAttribute("ad", ad);
+			return "/itemlist";
+		} else {
+			Admin ad = addb.select(seq);
+			model.addAttribute("ad", ad);
+			return "/result";
+		}
 	}
 
 	@RequestMapping(value = "/delete.do", method = RequestMethod.GET)
 	public String delete(@RequestParam(value = "seq", required = true) int seq) {
 		addb.delete(seq);
-		return "redirect:/itemlist";
+		return "/result";
 	}
 }
