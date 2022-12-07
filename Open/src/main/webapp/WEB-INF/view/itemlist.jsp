@@ -79,6 +79,8 @@ h1 {
             color:black;
             text-decoration: none;
         }
+.ex{
+background-color : yellow;}
 </style>
 </head>
 <body>
@@ -107,8 +109,10 @@ h1 {
 					<td><input type="checkbox" value = ${ad_n.seq}></td>
 					<td><a href="/itemlist?seq=${ad_n.seq }">${ad_n.item}</td>
 					<td>${ad_n.itemcount}</td>
-					<td>${ad_n.date}
+					<td>${ad_n.date}</td>
 				</tr>
 			</c:forEach>
+			
 	</table>
+
 </body>
