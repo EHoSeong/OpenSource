@@ -51,11 +51,14 @@
         #openo{
             margin-top:70px;
             margin-left : 1000px;
-            width:100px;
+            width:250px;
             height:80px;
             border:none;
             font-size: 25px;
-            background-color: white;
+            background-color: smokegray;
+            border : 2px solid ;
+            border-radius : 5px;
+            b
         }
    </style>
 <body>
@@ -63,7 +66,7 @@
         <a href = "/home">물품 대여</a></div>
         
     <form action="/adminregister.do" method="post">
-        <table border="1">
+        <table >
             <tr>
                 <td>물품 사진</td>
                 <td><input type = "file" name="openphoto" id="openphoto"></td>
@@ -80,7 +83,7 @@
             </tr>
         </table>
 
-        <input type = "submit" value="추가">
+        <input id = "openo" type = "submit" value="추가">
     </form>
 </body>
 </html>
