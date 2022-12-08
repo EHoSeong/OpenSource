@@ -18,8 +18,8 @@ public class StdDB {
 	}
 
 	public void create(Student std) {
-		String sql = "INSERT INTO info (stdnum, name, phonenum) values (?, ?, ?)";
-		jdbcTemplate.update(sql, std.getStdnum(), std.getName(), std.getPhonenum());
+		String sql = "INSERT INTO info (itemname, stdnum, name, phonenum) values (?, ?, ?, ?)";
+		jdbcTemplate.update(sql,std.getItemname(), std.getStdnum(), std.getName(), std.getPhonenum());
 	}
 	public List<Student> select() {
 		String sql = "select * from info";

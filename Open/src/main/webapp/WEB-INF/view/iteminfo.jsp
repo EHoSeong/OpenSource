@@ -88,7 +88,7 @@
         <table border="1">
             <tr>
                 <td>물품사진</td>
-                <td><img src = cl.jpg class = "sa"></td>
+                <td><img src="image/${ad.item}.PNG"></td>
             </tr>
     
             <tr>
@@ -103,6 +103,7 @@
     
         </table>
     	<div class="goo"><a href="/delete.do?seq=${ad.seq}">삭제</a>&nbsp;<a onclick="history.back(-1)">돌아가기</a></div>
+    	<br><br><br><br><br>
         
     </div>
     
