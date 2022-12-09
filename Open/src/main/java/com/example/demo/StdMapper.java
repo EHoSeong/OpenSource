@@ -12,6 +12,7 @@ public class StdMapper implements RowMapper<Student> {
 	public Student mapRow(ResultSet rs, int rowNum) throws SQLException{
 		Student std = new Student();
 		std.setSeq(rs.getInt("seq"));
+		std.setItemname(rs.getString("itemname"));
 		std.setStdnum(rs.getString("stdnum"));
 		std.setName(rs.getString("name"));
 		std.setPhonenum(rs.getString("phonenum"));

@@ -48,7 +48,7 @@
         input[type="button"]{
             margin: auto;
             display: block;
-            width:70px;
+            width:150px;
             height:45px;
             font-size: 25px;
             background-color:beige;
@@ -67,6 +67,7 @@
 
     <div class = "check">
         <table border="1">
+        
             <tr>
                 <td>ÇÐ¹ø</td>
                 <td>${std.stdnum }</td>
@@ -79,12 +80,12 @@
     
             <tr>
                 <td>ºô¸°¹°Ç°</td>
-                <td></td>
+                <td>${std.itemname}</td>
             </tr>
     
             <tr>
                 <td>ºô¸°³¯Â¥</td>
-                <td></td>
+                <td>${std.date }</td>
             </tr>
     
         </table>

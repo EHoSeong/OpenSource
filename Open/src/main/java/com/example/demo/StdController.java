@@ -15,24 +15,25 @@ import org.springframework.web.servlet.ModelAndView;
 public class StdController {
 	@Autowired
 	private StdDB stddb;
+	@Autowired
+	private AdminDB addb;
 
 	@RequestMapping(value = "/bookinfo", method = RequestMethod.GET)
 	public String eprocess1(Model model) {
 		model.addAttribute("msg", new Student());
+		List<Admin> ad = addb.select();
+		model.addAttribute("ad", ad);
 		return "/stdinput";
 	}
 
-	@RequestMapping(value = "/home")
-	public String home() {
-
-		return "/home";
-	}
-
-	@RequestMapping(value = "/home", method = RequestMethod.POST)
-	public String s(@ModelAttribute Student ret, Model model) {
-		model.addAttribute("msg", ret);
+	@RequestMapping(value = "/stdinput.do", method = RequestMethod.POST)
+	public String Add(@ModelAttribute Student ret, Model model) {
+		model.addAttribute("ad", ret);
+		Admin ad = addb.select(ret.getItemname());
+		ad.setItemcount(ad.getItemcount()-1);
+		addb.update(ad);
 		stddb.create(ret);
-		return "/home";
+		return "redirect:/home";
 	}
 
 	// 조회
@@ -42,12 +43,6 @@ public class StdController {
 		Student std = stddb.select(stdnum);
 		model.addAttribute("std", std);
 		return "/stdresult";
-	}
-
-	@RequestMapping(value = "test/std_delete.do", method = RequestMethod.GET)
-	public String delete(@RequestParam(value = "seq", required = true) int seq) {
-		stddb.delete(seq);
-		return "redirect:/test/std_list.do";
 	}
 
 }

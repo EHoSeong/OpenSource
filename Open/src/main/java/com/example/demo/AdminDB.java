@@ -21,24 +21,40 @@ public class AdminDB {
 		String sql = "INSERT INTO admin (item, itemcount) values (?, ?)";
 		jdbcTemplate.update(sql, ad.getItem(), ad.getItemcount());
 	}
+
 	public List<Admin> select() {
 		String sql = "select * from admin";
 		List<Admin> ad = jdbcTemplate.query(sql, new AdminMapper());
 		System.out.println("select값 :" + ad);
-		
+
 		return ad;
 	}
+
 	public Admin select(int seq) {
 		String sql = "select * from admin where seq=?";
-		
+
 		Admin ad = jdbcTemplate.queryForObject(sql, new AdminMapper(), seq);
 		System.out.println("select 값 : " + ad);
-		
+
 		return ad;
 	}
-	public int delete(int seq) {
-		String sql = "delete from admin where seq=?";
-		return jdbcTemplate.update(sql,seq);
+
+	public Admin select(String item) {
+		String sql = "select * from admin where item=?";
+
+		Admin ad = jdbcTemplate.queryForObject(sql, new AdminMapper(), item);
+
+		return ad;
+	}
+
+	public void update(Admin ad) {
+		String sql = "update admin set item=?, itemcount=? where item=?";
+		jdbcTemplate.update(sql, ad.getItem(), ad.getItemcount(), ad.getItem());
 	}
 	
+	public int delete(int seq) {
+		String sql = "delete from admin where seq=?";
+		return jdbcTemplate.update(sql, seq);
+	}
+
 }

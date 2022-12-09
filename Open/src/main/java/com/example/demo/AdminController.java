@@ -21,6 +21,12 @@ public class AdminController {
 		model.addAttribute("ad", new Admin());
 		return "/adinput";
 	}
+	@RequestMapping(value = "/home")
+	public String home(Model model) {
+		List<Admin> ad = addb.select();
+		model.addAttribute("ad", ad);
+		return "/home";
+	}
 
 	@RequestMapping(value = "/bookcheck", method = RequestMethod.GET)
 	public String Check(Model model) {

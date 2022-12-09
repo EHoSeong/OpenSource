@@ -4,6 +4,15 @@ import java.util.Date;
 
 public class Student {
 	private int seq;
+	private String itemname;
+	public String getItemname() {
+		return itemname;
+	}
+
+	public void setItemname(String itemname) {
+		this.itemname = itemname;
+	}
+
 	private String stdnum;
 	private String name;
 	private String phonenum;
@@ -17,9 +26,12 @@ public class Student {
 		this.date = date;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Student [seq=" + seq + ", stdnum=" + stdnum + ", name=" + name + ", phonenum=" + phonenum + "]";
+		return "Student [seq=" + seq + ", itemname=" + itemname + ", stdnum=" + stdnum + ", name=" + name
+				+ ", phonenum=" + phonenum + ", date=" + date + "]";
 	}
 
 	public int getSeq() {
