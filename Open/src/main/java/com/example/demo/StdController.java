@@ -29,11 +29,12 @@ public class StdController {
 	@RequestMapping(value = "/stdinput.do", method = RequestMethod.POST)
 	public String Add(@ModelAttribute Student ret, Model model) {
 		model.addAttribute("ad", ret);
+		Admin ad = addb.select(ret.getItemname());
+		ad.setItemcount(ad.getItemcount()-1);
+		addb.update(ad);
 		stddb.create(ret);
 		return "redirect:/home";
 	}
-
-
 
 	// 조회
 	@RequestMapping(value = "/bookcheck.do", method = RequestMethod.GET)

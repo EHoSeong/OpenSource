@@ -49,6 +49,10 @@ input {
 	border-bottom: 3px solid black;
 }
 
+input[type="checkbox"]{
+	width:20px;
+	height:20px;
+}
 #openenye {
 	margin-top: 70px;
 	margin-left: 1000px;
@@ -70,14 +74,16 @@ input {
 	</div>
 
 	<form action="/stdinput.do" method="post">
-		<table border="1">
+		<table>
 			<tr>
 				<td>물품명</td>
-				<c:forEach var="ad" items="${ad}">
-					<td>${ad.item }<input type="checkbox" name="itemname" value="${ad.item }" />
+				
+					<td>
+					<c:forEach var="ad" items="${ad}">
+					<input type="checkbox" name="itemname" value="${ad.item }" />${ad.item }
+					</c:forEach>
 					</td>
-					
-				</c:forEach>
+				
 			<tr>
 			<tr>
 				<td>학번</td>

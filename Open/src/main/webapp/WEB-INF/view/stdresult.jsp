@@ -48,7 +48,7 @@
         input[type="button"]{
             margin: auto;
             display: block;
-            width:70px;
+            width:150px;
             height:45px;
             font-size: 25px;
             background-color:beige;
