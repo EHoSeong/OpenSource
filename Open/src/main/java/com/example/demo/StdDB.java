@@ -21,22 +21,7 @@ public class StdDB {
 		String sql = "INSERT INTO info (itemname, stdnum, name, phonenum) values (?, ?, ?, ?)";
 		jdbcTemplate.update(sql,std.getItemname(), std.getStdnum(), std.getName(), std.getPhonenum());
 	}
-	public List<Student> select() {
-		String sql = "select * from info";
-		List<Student> std = jdbcTemplate.query(sql, new StdMapper());
-		System.out.println("select값 :" + std);
-		
-		return std;
-	}
-	
-	public Student select(int seq) {
-		String sql = "select * from info where seq=?";
-		
-		Student std = jdbcTemplate.queryForObject(sql, new StdMapper(), seq);
-		System.out.println("select 값 : " + std);
-		
-		return std;
-	}
+
 	public Student select(String stdnum) {
 		String sql = "select * from info where stdnum=?";
 		

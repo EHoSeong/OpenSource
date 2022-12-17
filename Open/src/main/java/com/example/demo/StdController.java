@@ -20,7 +20,6 @@ public class StdController {
 
 	@RequestMapping(value = "/bookinfo", method = RequestMethod.GET)
 	public String eprocess1(Model model) {
-		model.addAttribute("msg", new Student());
 		List<Admin> ad = addb.select();
 		model.addAttribute("ad", ad);
 		return "/stdinput";
@@ -39,7 +38,6 @@ public class StdController {
 	// 조회
 	@RequestMapping(value = "/bookcheck.do", method = RequestMethod.GET)
 	public String getStudent(Model model, @RequestParam(value = "stdnum", required = false, defaultValue = "0") String stdnum) {
-
 		Student std = stddb.select(stdnum);
 		model.addAttribute("std", std);
 		return "/stdresult";
